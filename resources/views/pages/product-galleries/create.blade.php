@@ -33,6 +33,13 @@
                         <input type="radio" name="is_default" value="0" class="form-control @error('is_default') is-invalid @enderror"/>No
                     </label>
                     @error('is_default') <div class="text-muted">{{ $message }}</div> @enderror
+                    <div>
+                        @if ($errors -> any())
+                        @foreach ($errors as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach                        
+                        @endif
+                    </div>
                 </div>
                 <div class="form-group">
                     <button class="btn-primary btn-block" type="submit">Tambah Foto Barang</button>
