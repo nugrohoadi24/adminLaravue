@@ -62,9 +62,9 @@ class ProductGalleryController extends Controller
         $data['photo'] = $request->file('photo')->store(
             'assets/product', 'public'
         );
-
-        ProductGallery::create($data);
-        return redirect()->route('product-galleries.index');
+        return $data;
+        // ProductGallery::create($data);
+        // return redirect()->route('product-galleries.index');
 
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['errors' => $e -> getMessage()]);
