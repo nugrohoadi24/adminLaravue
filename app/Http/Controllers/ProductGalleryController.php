@@ -62,6 +62,7 @@ class ProductGalleryController extends Controller
         $data['photo'] = $request->file('photo')->store(
             'assets/product', 'public'
         );
+        adaosd
         return $data;
         // ProductGallery::create($data);
         // return redirect()->route('product-galleries.index');
