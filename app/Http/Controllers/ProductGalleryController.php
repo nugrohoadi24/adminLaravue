@@ -57,18 +57,13 @@ class ProductGalleryController extends Controller
      */
     public function store(ProductGalleryRequest $request)
     {
-        try {
         $data = $request->all();
         $data['photo'] = $request->file('photo')->store(
-            'assets/product', 'local'
+            'assets/product', 'public'
         );
         ProductGallery::create($data);
         return redirect()->route('product-galleries.index');
 
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['errors' => $e -> getMessage()]);
-        }
-         
     }
 
     /**
